@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ChatGPT Interface</title>
+</head>
+<body>
+    <h1>ChatGPT</h1>
+    <div id="chat-box">
+        <div id="chat-log"></div>
+        <input type="text" id="user-input" placeholder="Posez votre question...">
+        <button id="send-button">Envoyer</button>
+    </div>
+   
+    <div id="chat-container">
+        <div id="chat-messages"></div>
+    </div>
+
+    <form id="chat-form">
+        <input type="text" id="user-input" placeholder="Posez une question...">
+        <button type="submit">Envoyer</button>
+    </form>
+    
+    <script>
+        // Récupérer les éléments du DOM
+        const chatForm = document.getElementById('chat-form');
+        const userInput = document.getElementById('user-input');
+        const chatMessages = document.getElementById('chat-messages');
+        
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userMessage = userInput.value;
+            
+            // Envoyer la question de l'utilisateur à ChatGPT via l'API (remplacez 'URL_DE_VOTRE_API' par l'URL réelle)
+            const response = await fetch('URL_DE_VOTRE_API', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ question: userMessage }),
+            });
+            
+            const data = await response.json();
+            
+            // Afficher la réponse de ChatGPT dans la fenêtre de chat
+            const chatResponse = document.createElement('div');
+            chatResponse.innerText = data.answer;
+            chatMessages.appendChild(chatResponse);
+            
+            // Effacer le champ de saisie
+            userInput.value = '';
+        });
+    </script>
+</body>
+</html>
