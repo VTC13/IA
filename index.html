@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
     <title>IA 2.0 Interface</title>
     <style>
@@ -65,7 +65,7 @@
 
     <script>
         // Récupérer les éléments du DOM
-        const chatForm = document.getElementById('chat-box');
+        const chatForm = document.getElementById('chat-form');
         const userInput = document.getElementById('user-input');
         const chatMessages = document.getElementById('chat-messages');
         const responseInput = document.getElementById('response');
@@ -75,7 +75,7 @@
             const userMessage = userInput.value;
 
             // Envoyer la question de l'utilisateur à ChatGPT via l'API (remplacez 'URL_DE_VOTRE_API' par l'URL réelle)
-            const response = await fetch('http://127.0.0.1:5000', {
+            const response = await fetch('URL_DE_VOTRE_API', {  // Remplacez par l'URL réelle de votre API en ligne
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -99,3 +99,4 @@
     </script>
 </body>
 </html>
+
