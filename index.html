@@ -75,7 +75,7 @@
             const userMessage = userInput.value;
 
             // Envoyer la question de l'utilisateur à ChatGPT via l'API (remplacez 'URL_DE_VOTRE_API' par l'URL réelle)
-            const response = await fetch('URL_DE_VOTRE_API', {  // Remplacez par l'URL réelle de votre API en ligne
+            const response = await fetch('http://127.0.0.1:5000', {  // Remplacez par l'URL réelle de votre API en ligne
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
